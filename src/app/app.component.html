@@ -7,6 +7,24 @@
 </div>
 <br>
 <div class="row" style=" text-align: center; ">
+
+    <h3>Declarer un vol de velo (Oh bha mon veloooooo !)</h3>
+    <form class="form-inline" (submit)="saveVol()"  [formGroup]="volForm">
+        <div class="form-group">
+            <label for="">Name</label>
+            <input type="text" formControlName="name">
+        </div>
+        <div class="form-group">
+            <label for="">Phone</label>
+            <input type="text" formControlName="phone">
+        </div>
+        <div class="form-group">
+            <label for="">Description</label>
+            <input type="text" formControlName="description">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <br><br><br><br>
     <form class="form-inline" (submit)="save()"  [formGroup]="cityForm">
       <div class="input-group">
         <input formControlName="city" class="form-control" placeholder="Rechercher votre ville.">
