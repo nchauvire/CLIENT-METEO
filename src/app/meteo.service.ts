@@ -8,7 +8,7 @@ export class MeteoService {
     constructor (private http: Http) {}
     getData(city): any {
 
-        return this.http.get('http://api.meteo/previsions/' + city, )
+        return this.http.get('http://api-meteo/previsions/' + city, )
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

@@ -7,8 +7,7 @@ import 'rxjs/add/operator/toPromise';
 export class AlertService{
     constructor (private http: Http) {}
     getData(city): any {
-
-        return this.http.get('http://api.alert-meteo/alerte-meteo/' + city, )
+        return this.http.get('http://api-alerte-meteo/alerte-meteo/' + city, )
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

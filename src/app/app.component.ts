@@ -23,6 +23,7 @@ export class AppComponent {
     resultsMeteo;
     resultAlert;
     volService;
+    resultVol;
 
     constructor(formBuilder: FormBuilder, pollutionService: PollutionService, meteoService: MeteoService, alertService: AlertService, volService: VolService) {
         this.cityForm = formBuilder.group({
@@ -33,6 +34,7 @@ export class AppComponent {
             name: formBuilder.control(''),
             description: formBuilder.control(''),
             phone: formBuilder.control(''),
+            city: formBuilder.control(''),
         });
         this.pollutionService = pollutionService;
         this.meteoService = meteoService;
@@ -41,12 +43,13 @@ export class AppComponent {
     }
 
     save() {
-        this.pollutionService.getData().then(rep => this.results = rep);
+        this.pollutionService.getData(this.cityForm.value.city).then(rep => this.results = rep);
         this.meteoService.getData(this.cityForm.value.city).then(rep => this.resultsMeteo = rep);
         this.alertService.getData(this.cityForm.value.city).then(rep => this.resultAlert = rep);
+        this.volService.getData(this.cityForm.value.city).then(rep => this.resultVol = rep);
     }
 
     saveVol() {
-        this.volService.add(this.volForm.value).then((rep => this.resultsMeteo = rep));
+        this.volService.add(this.volForm.value).then((rep) => this.volForm.reset());
     }
 }

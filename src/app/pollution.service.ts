@@ -8,7 +8,7 @@ export class PollutionService {
     constructor (private http: Http) {}
     getData(city): any {
 
-        return this.http.get('http://api.pollution/pollutions/' + city, )
+        return this.http.get('http://api-pollution/pollutions/' + city, )
             .toPromise()
             .then(response => response.json())
             .catch(this.handleError);

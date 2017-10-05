@@ -1,87 +1,127 @@
-<img src="../assets/soleil.jpeg" style="position: relative; top: 0; left:0;" width="100px" height="100px"/>
-<div style="text-align:center">
-  <h1>
-    Ma paplication météo !
-  </h1>
-    <img src="../assets/licorne.jpg" width="250px" height="250px"/>
-</div>
-<br>
-<div class="row" style=" text-align: center; ">
-
-    <h3>Declarer un vol de velo (Oh bha mon veloooooo !)</h3>
-    <form class="form-inline" (submit)="saveVol()"  [formGroup]="volForm">
-        <div class="form-group">
-            <label for="">Name</label>
-            <input type="text" formControlName="name">
-        </div>
-        <div class="form-group">
-            <label for="">Phone</label>
-            <input type="text" formControlName="phone">
-        </div>
-        <div class="form-group">
-            <label for="">Description</label>
-            <input type="text" formControlName="description">
-        </div>
-        <button type="submit">Submit</button>
-    </form>
-    <br><br><br><br>
-    <form class="form-inline" (submit)="save()"  [formGroup]="cityForm">
-      <div class="input-group">
-        <input formControlName="city" class="form-control" placeholder="Rechercher votre ville.">
-        <span class="input-group-btn">
-          <button class="btn btn-secondary" type="submit">Go!</button>
-        </span>
-      </div>
-    </form>
-</div>
 
 <div class="row">
-   <div class="col-lg-4">
-       <h2>Pollution</h2>
-       <dl class="dl-horizontal">
-           <dt>co:</dt>
-           <dd>{{results ? results.co : 'non definie'}}</dd>
-           <dt>h :</dt>
-           <dd>{{results ? results.h : 'non definie'}}</dd>
-           <dt>no2 :</dt>
-           <dd>{{results ? results.no2 : 'non definie'}}</dd>
-           <dt>o3 :</dt>
-           <dd>{{results ? results.o3 : 'non definie'}}</dd>
-           <dt>p :</dt>
-           <dd>{{results ? results.p : 'non definie'}}</dd>
-           <dt>pm25 :</dt>
-           <dd>{{results ? results.pm25 : 'non definie'}}</dd>
-           <dt>pm10 :</dt>
-           <dd>{{results ? results.pm10 : 'non definie'}}</dd>
-           <dt>t :</dt>
-           <dd>{{results ? results.t : 'non definie'}}</dd>
-       </dl>
-   </div>
-    <div class="col-lg-4">
-        <h2>Meteo</h2>
-        <dl class="dl-horizontal">
-            <dt>Température</dt>
-            <dd>{{resultsMeteo ? resultsMeteo.main.temp : 'non definie'}}</dd>
-            <dt>Température Min</dt>
-            <dd>{{resultsMeteo ? resultsMeteo.main.temp_min : 'non definie'}}</dd>
-            <dt>Température Max</dt>
-            <dd>{{resultsMeteo ? resultsMeteo.main.temp_max : 'non definie'}}</dd>
-            <dt>Humiditée</dt>
-            <dd>{{resultsMeteo ? resultsMeteo.main.humidity + '%' : 'non definie'}}</dd>
-        </dl>
+  <div class="col-md-6">
+    <img src="../assets/soleil.jpeg" style="position: relative; top: 0; left:0;" width="100px"
+         height="100px"/>
+    <div style="text-align:center">
+      <h1>
+        Ma paplication météo !
+      </h1>
+      <img src="../assets/licorne.jpg" width="250px" height="250px"/>
     </div>
-    <div class="col-lg-4">
-        <h2>Alert Meteo</h2>
-        <dl class="dl-horizontal">
-            <dt>Couleur</dt>
-            <dd>{{resultAlert ? resultAlert.couleur[0] : 'non definie'}}</dd>
-            <dt>Date debut</dt>
-            <dd>{{resultAlert ? resultAlert.dateDebutEvtTU[0] : 'non definie'}}</dd>
-            <dt>Date fin</dt>
-            <dd>{{resultAlert ? resultAlert.dateFinEvtTU[0] : 'non definie'}}</dd>
-            <dt>Phenomene</dt>
-            <dd>{{resultAlert ? resultAlert.phenomene[0] : 'non definie'}}</dd>
+  </div>
+  <div class="col-md-6" style="padding-top: 110px;">
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Declarer un vol de velo (Oh bha mon veloooooo !)</h3>
+        <form  (submit)="saveVol()" [formGroup]="volForm">
+          <div class="form-group">
+            <label  for="name">Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name">
+          </div>
+          <div class="form-group">
+            <label for="">Phone</label>
+            <input class="form-control" type="text" formControlName="phone">
+          </div>
+          <div class="form-group">
+            <label for="">Description</label>
+            <input class="form-control" type="text" formControlName="description">
+          </div>
+          <div class="form-group">
+            <label for="">Ville</label>
+            <input class="form-control" type="text" formControlName="city">
+          </div>
+          <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
 
-        </dl>
+  </div>
+</div>
+<br/>
+<hr/>
+<div class="row" style=" text-align: center; ">
+  <form  class="form-inline" (submit)="save()" [formGroup]="cityForm">
+    <div class="input-group">
+      <input formControlName="city" class="form-control" placeholder="Rechercher votre ville.">
+      <span class="input-group-btn">
+          <button class="btn btn-secondary" type="submit">Go!</button>
+        </span>
     </div>
+  </form>
+</div>
+
+<hr/>
+<br/>
+
+
+<div class="row">
+  <div class="col-lg-3">
+    <h2>Pollution</h2>
+    <dl class="dl-horizontal">
+      <dt>co:</dt>
+      <dd>{{results ? results.co : 'non definie'}}</dd>
+      <dt>h :</dt>
+      <dd>{{results ? results.h : 'non definie'}}</dd>
+      <dt>no2 :</dt>
+      <dd>{{results ? results.no2 : 'non definie'}}</dd>
+      <dt>o3 :</dt>
+      <dd>{{results ? results.o3 : 'non definie'}}</dd>
+      <dt>p :</dt>
+      <dd>{{results ? results.p : 'non definie'}}</dd>
+      <dt>pm25 :</dt>
+      <dd>{{results ? results.pm25 : 'non definie'}}</dd>
+      <dt>pm10 :</dt>
+      <dd>{{results ? results.pm10 : 'non definie'}}</dd>
+      <dt>t :</dt>
+      <dd>{{results ? results.t : 'non definie'}}</dd>
+    </dl>
+  </div>
+  <div class="col-lg-3">
+    <h2>Meteo</h2>
+    <dl class="dl-horizontal">
+      <dt>Température</dt>
+      <dd>{{resultsMeteo ? resultsMeteo.main.temp : 'non definie'}}</dd>
+      <dt>Température Min</dt>
+      <dd>{{resultsMeteo ? resultsMeteo.main.temp_min : 'non definie'}}</dd>
+      <dt>Température Max</dt>
+      <dd>{{resultsMeteo ? resultsMeteo.main.temp_max : 'non definie'}}</dd>
+      <dt>Humiditée</dt>
+      <dd>{{resultsMeteo ? resultsMeteo.main.humidity + '%' : 'non definie'}}</dd>
+    </dl>
+  </div>
+  <div class="col-lg-3">
+    <h2>Alert Meteo</h2>
+    <dl class="dl-horizontal">
+      <dt>Couleur</dt>
+      <dd>{{resultAlert ? resultAlert.couleur[0] : 'non definie'}}</dd>
+      <dt>Date debut</dt>
+      <dd>{{resultAlert ? resultAlert.dateDebutEvtTU[0] : 'non definie'}}</dd>
+      <dt>Date fin</dt>
+      <dd>{{resultAlert ? resultAlert.dateFinEvtTU[0] : 'non definie'}}</dd>
+      <dt>Phenomene</dt>
+      <dd>{{resultAlert ? resultAlert.phenomene[0] : 'non definie'}}</dd>
+
+    </dl>
+  </div>
+  <div class="col-md-3 text-center">
+    <div class="table  table-striped">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>phone</th>
+        <th>description</th>
+        <th>date</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let vol of resultVol ">
+        <td>{{vol.name}}</td>
+        <td>{{vol.phone}}</td>
+        <td>{{vol.description}}</td>
+        <td>{{vol.date}}</td>
+      </tr>
+      </tbody>
+    </div>
+  </div>
 </div>
